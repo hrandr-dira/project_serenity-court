@@ -22,8 +22,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('no_telepon', 15);
             $table->enum('peran', ['Admin', 'Customer']);
-            $table->date('tanggal_daftar');
-            $table->enum('status_akun', ['Aktif', 'Tidak Aktif']);
+            $table->date('tanggal_daftar')->useCurrent();
+            $table->enum('status_akun', ['Aktif', 'Tidak Aktif'])->default('Aktif');
+            $table->string('password');
             $table->timestamps();
         });
     }
